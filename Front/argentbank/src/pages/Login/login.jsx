@@ -5,7 +5,7 @@ import Navigation from "../../components/Navigation/navigation";
 import Footer from "../../components/Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserToken } from "../../redux/token";
-import { setRemember } from "../../redux/remember";
+import { setRemember } from "../../features/remember";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

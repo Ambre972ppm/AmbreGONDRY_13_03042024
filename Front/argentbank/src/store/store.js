@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import tokenReducer from './token'
-import rememberReducer from './remember'
+import tokenReducer from '../redux/token'
+import rememberReducer from '../features/remember'
 
 export default configureStore({
   reducer: {

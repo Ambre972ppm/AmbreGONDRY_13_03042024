@@ -15,6 +15,7 @@ body {
 
 .main {
   flex: 1;
+  background-color: lightgray;
 }
 
 .bg-dark {
@@ -52,6 +53,8 @@ body {
 }
 
 .main-nav-item {
+  display: flex;
+  gap: 5px;
   text-decoration: none;
   margin-right: 0.5rem;
 }
@@ -170,7 +173,7 @@ body {
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-block: 3rem;
   padding: 2rem;
 }
 
