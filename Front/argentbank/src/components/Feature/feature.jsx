@@ -3,6 +3,8 @@
 // Props:
 // - feature: an object containing feature details (icon, iconName, title, description)
 
+import PropTypes from 'prop-types';
+
 const Feature = (props) => {
   const { feature } = props;
 
@@ -15,4 +17,13 @@ const Feature = (props) => {
   )
 }
 
-export default Feature
+Feature.propTypes = {
+  feature: PropTypes.shape({
+    icon: PropTypes.string.isRequired,
+    iconName: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Feature;

@@ -1,6 +1,7 @@
 // AccountContainer.jsx
 // This component contains and displays a list of bank accounts.
 
+import React from 'react';
 import Account from "../Account/account"
 
 const AccountContainer = () => {
@@ -32,4 +33,4 @@ const AccountContainer = () => {
   )
 }
 
-export default AccountContainer
+export default AccountContainer;
