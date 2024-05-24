@@ -1,3 +1,6 @@
+// FeatureContainer.jsx
+// This component contains and displays a list of bank features.
+
 import Feature from "../Feature/feature"
 import ChatIcon from "../../assets/icon-chat.png";
 import MoneyIcon from "../../assets/icon-money.png";

@@ -1,8 +1,11 @@
+// authSlice.js
+// This file contains the Redux slice for authentication state management.
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: null,
-  token: null,
+  user: null, // Stores the user information
+  token: null, // Stores the authentication token
 };
 
 const authSlice = createSlice({
@@ -10,14 +13,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.user = action.payload;
+      state.user = action.payload; // Updates the user information
     },
     setToken(state, action) {
-      state.token = action.payload;
+      state.token = action.payload; // Updates the authentication token
     },
     logout(state) {
-      state.user = null;
-      state.token = null;
+      state.user = null; // Clears the user information
+      state.token = null; // Clears the authentication token
     },
   },
 });

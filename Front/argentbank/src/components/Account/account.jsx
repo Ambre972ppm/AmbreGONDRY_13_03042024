@@ -1,3 +1,8 @@
+// Account.jsx
+// This component displays individual bank account information.
+// Props:
+// - account: an object containing account details (title, amount, description)
+
 const Account = (props) => {
   const { account } = props;
 

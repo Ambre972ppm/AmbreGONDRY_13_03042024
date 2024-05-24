@@ -1,3 +1,8 @@
+// Feature.jsx
+// This component displays a single feature of the bank.
+// Props:
+// - feature: an object containing feature details (icon, iconName, title, description)
+
 const Feature = (props) => {
   const { feature } = props;
 

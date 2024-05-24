@@ -1,3 +1,10 @@
+// ProfileHeader.jsx
+// This component displays the profile header and allows the user to edit their name.
+// Props:
+// - firstName: the first name of the user
+// - lastName: the last name of the user
+// - setNewUserName: function to update the user's name
+
 import { useState } from "react"
 import styled from "styled-components";
 

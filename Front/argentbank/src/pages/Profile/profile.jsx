@@ -1,3 +1,7 @@
+// Profile.jsx
+// This page displays user profile information and allows editing.
+// It uses Redux to manage the user state and fetches user data from the API.
+
 import React, { useEffect, useState } from "react";
 import AccountContainer from "../../components/AccountContainer/accountContainer";
 import Footer from "../../components/Footer/footer";
@@ -12,14 +16,15 @@ const Profile = () => {
   const [userProfile, setUserProfile] = useState({});
   const [newUserName, setNewUserName] = useState({});
   const { token } = useSelector((state) => state.token);
-  const { remember } = useSelector((state) => state.remember);
 
+  // Fetch user profile on component mount and when token changes
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const response = await getProfile(token);
         setUserProfile(response.data.body);
       } catch (error) {
+        // Redirect to sign-in if there's an error fetching the profile
         navigate('/sign-in');
       }
     };
@@ -29,6 +34,7 @@ const Profile = () => {
     }
   }, [token, navigate]);
 
+  // Update user name when newUserName changes
   useEffect(() => {
     const updateUserName = async () => {
       if (newUserName.firstName && newUserName.lastName) {

@@ -1,3 +1,7 @@
+// Login.jsx
+// This page handles user authentication.
+// It uses Redux to manage authentication state and errors.
+
 import React, { useEffect, useState } from "react";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

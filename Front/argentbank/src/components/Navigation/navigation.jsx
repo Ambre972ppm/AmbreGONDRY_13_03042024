@@ -1,3 +1,8 @@
+// Navigation.jsx
+// This component displays the main navigation bar and handles user authentication links.
+// Props:
+// - firstName: the first name of the user (for displaying when logged in)
+
 import { faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";

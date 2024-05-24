@@ -1,20 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+// remember.js
+// This file contains the Redux slice for managing the "remember me" functionality.
 
-const localRemember = localStorage.getItem('remember')
+import { createSlice } from '@reduxjs/toolkit';
+
+const localRemember = localStorage.getItem('remember');
 
 export const rememberSlice = createSlice({
   name: 'user',
   initialState: {
-    remember: localRemember === "true" ? true : false,
+    remember: localRemember === "true" ? true : false, // Sets the initial state based on local storage
   },
   reducers: {
     setRemember: (state, action) => {
-      state.remember = action.payload
+      state.remember = action.payload; // Updates the remember state
     }
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const { setRemember } = rememberSlice.actions
-
-export default rememberSlice.reducer
+export const { setRemember } = rememberSlice.actions;
+export default rememberSlice.reducer;

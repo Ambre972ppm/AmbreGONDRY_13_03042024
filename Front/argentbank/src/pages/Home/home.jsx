@@ -1,3 +1,6 @@
+// Home.jsx
+// This page displays the home content and promotional features.
+
 import { useEffect } from "react";
 import  Footer from "../../components/Footer/footer"
 import HomeBanner from "../../components/HomeBanner/homeBanner"
