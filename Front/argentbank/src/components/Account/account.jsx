@@ -3,6 +3,8 @@
 // Props:
 // - account: an object containing account details (title, amount, description)
 
+import PropTypes from 'prop-types';
+
 const Account = (props) => {
   const { account } = props;
 
@@ -17,7 +19,15 @@ const Account = (props) => {
         <button className="transaction-button">View transactions</button>
       </div>
     </section>
-  )
+  );
 }
 
-export default Account
+Account.propTypes = {
+  account: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Account;
