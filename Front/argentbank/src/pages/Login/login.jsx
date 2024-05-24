@@ -22,7 +22,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    // If user connected, navigate to his dashboard
+    // If user is connected, navigate to their dashboard
     if (localStorage.getItem('token') !== null || sessionStorage.getItem('token') !== null) {
       navigate('/profile');
     }
@@ -72,9 +72,14 @@ const Login = () => {
               <p className="form-message">Wrong username or password!</p>
             </div>
             <div className="input-remember">
-              <input type="checkbox" id="remember-me" checked={remember} onChange={() => {
-                dispatch(setRemember(!remember));
-              }}/>
+              <input
+                type="checkbox"
+                id="remember-me"
+                checked={remember}
+                onChange={() => {
+                  dispatch(setRemember(!remember));
+                }}
+              />
               <label htmlFor="remember-me">Remember me</label>
             </div>
             <button type="submit" className="sign-in-button">

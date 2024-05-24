@@ -13,7 +13,7 @@ export const rememberSlice = createSlice({
   reducers: {
     setRemember: (state, action) => {
       state.remember = action.payload; // Updates the remember state
-    }
+    },
   },
 });
 
