@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navigation from "../../components/Navigation/navigation";
@@ -6,8 +6,8 @@ import Footer from "../../components/Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserToken } from "../../redux/token";
 import { setRemember } from "../../features/remember";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,34 +20,24 @@ const Login = () => {
   useEffect(() => {
     // If user connected, navigate to his dashboard
     if (localStorage.getItem('token') !== null || sessionStorage.getItem('token') !== null) {
-      navigate('/profile')
+      navigate('/profile');
     }
   }, [navigate]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Fetch user infos
-    axios
-      .post("http://localhost:3001/api/v1/user/login",{
-        email: username,
-        password: password,
-      })
-      .then((response) => {
-        const message = document.getElementById("error-message")
-        // If success : set user and token in redux
-        if (response.status === 200) {
-          dispatch(setUserToken(response.data.body.token))
-          message.classList.add("hidden")
-          navigate("/profile")
-        }
-      })
-      .catch(() => {
-        const message = document.getElementById("error-message")
-        message.classList.remove("hidden")
-        dispatch(setUserToken(null))
-      });
-  }
+    try {
+      const response = await loginUser({ email: username, password: password });
+      if (response.status === 200) {
+        dispatch(setUserToken(response.data.body.token));
+        navigate("/profile");
+      }
+    } catch (error) {
+      const message = document.getElementById('error-message');
+      message.classList.remove('hidden');
+    }
+  };
 
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
@@ -75,12 +65,12 @@ const Login = () => {
               />
             </div>
             <div id="error-message" className="hidden">
-              <p className="form-message" >Wrong username or password!</p>
+              <p className="form-message">Wrong username or password!</p>
             </div>
             <div className="input-remember">
               <input type="checkbox" id="remember-me" checked={remember} onChange={() => {
-                dispatch(setRemember(!remember))
-                }}/>
+                dispatch(setRemember(!remember));
+              }}/>
               <label htmlFor="remember-me">Remember me</label>
             </div>
             <button type="submit" className="sign-in-button">
