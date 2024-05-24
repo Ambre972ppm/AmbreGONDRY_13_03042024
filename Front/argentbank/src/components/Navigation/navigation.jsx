@@ -3,6 +3,8 @@
 // Props:
 // - firstName: the first name of the user (for displaying when logged in)
 
+import React from 'react';
+import PropTypes from 'prop-types';
 import { faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
@@ -55,7 +57,10 @@ const Navigation = (props) => {
       </div>
     </nav>
   )
-  
 }
 
-export default Navigation
+Navigation.propTypes = {
+  firstName: PropTypes.string,
+};
+
+export default Navigation;

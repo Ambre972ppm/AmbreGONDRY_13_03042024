@@ -5,7 +5,8 @@
 // - lastName: the last name of the user
 // - setNewUserName: function to update the user's name
 
-import { useState } from "react"
+import React, { useState } from "react"
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 
 const Form = styled.div`
@@ -96,9 +97,14 @@ const ProfileHeader = (props) => {
           </Form>
         </>
       )}
-      
     </div>
   ) 
 }
 
-export default ProfileHeader
+ProfileHeader.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  setNewUserName: PropTypes.func.isRequired,
+};
+
+export default ProfileHeader;
