@@ -1,11 +1,11 @@
 // FeatureContainer.jsx
 // This component contains and displays a list of bank features.
 
-import Feature from "../Feature/feature"
+import React from 'react';
+import Feature from "../Feature/feature";
 import ChatIcon from "../../assets/icon-chat.png";
 import MoneyIcon from "../../assets/icon-money.png";
 import SecurityIcon from "../../assets/icon-security.png";
-
 
 const FeaturesContainer = () => {
   const features = [
@@ -39,7 +39,6 @@ const FeaturesContainer = () => {
       ))}
     </section>
   )
-  
 }
 
-export default FeaturesContainer
+export default FeaturesContainer;

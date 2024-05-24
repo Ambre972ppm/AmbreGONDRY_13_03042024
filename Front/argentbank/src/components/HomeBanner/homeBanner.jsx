@@ -1,6 +1,7 @@
 // HomeBanner.jsx
 // This component displays the home banner with promotional content.
 
+import React from 'react';
 import FeaturesContainer from "../FeaturesContainer/featuresContainer"
 
 const HomeBanner = () => (
@@ -18,4 +19,4 @@ const HomeBanner = () => (
     </main>
 )
 
-export default HomeBanner
+export default HomeBanner;
