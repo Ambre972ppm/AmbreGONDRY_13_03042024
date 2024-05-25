@@ -1,3 +1,5 @@
+// App.jsx
+// This is the main application component that sets up routing and Redux provider.
 
 import './index.css';
 import React from 'react';
@@ -22,4 +24,4 @@ const App = () => (
   </Provider>
 );
 
-export default App; 
+export default App;

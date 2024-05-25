@@ -20,9 +20,10 @@ const Login = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    // If user is connected, navigate to their dashboard
+    // If user connected, navigate to their dashboard
     if (localStorage.getItem('token') !== null || sessionStorage.getItem('token') !== null) {
       navigate('/profile');
     }
@@ -30,16 +31,25 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(false); // Reset error state
 
     try {
       const response = await loginUser({ email: username, password: password });
       if (response.status === 200) {
-        dispatch(setUserToken(response.data.body.token));
+        const token = response.data.body.token;
+        dispatch(setUserToken(token));
+
+        // Save the token based on the remember me option
+        if (remember) {
+          localStorage.setItem('token', token);
+        } else {
+          sessionStorage.setItem('token', token);
+        }
+
         navigate("/profile");
       }
     } catch (error) {
-      const message = document.getElementById('error-message');
-      message.classList.remove('hidden');
+      setError(true);
     }
   };
 
@@ -68,18 +78,15 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div id="error-message" className="hidden">
-              <p className="form-message">Wrong username or password!</p>
-            </div>
+            {error && (
+              <div id="error-message">
+                <p className="form-message">Wrong username or password!</p>
+              </div>
+            )}
             <div className="input-remember">
-              <input
-                type="checkbox"
-                id="remember-me"
-                checked={remember}
-                onChange={() => {
-                  dispatch(setRemember(!remember));
-                }}
-              />
+              <input type="checkbox" id="remember-me" checked={remember} onChange={() => {
+                dispatch(setRemember(!remember));
+              }}/>
               <label htmlFor="remember-me">Remember me</label>
             </div>
             <button type="submit" className="sign-in-button">
