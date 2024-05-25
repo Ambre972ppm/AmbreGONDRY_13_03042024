@@ -1,3 +1,7 @@
+
+// reportWebVitals.js
+// This file is used for measuring the performance of the React application.
+
 const reportWebVitals = onPerfEntry => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
