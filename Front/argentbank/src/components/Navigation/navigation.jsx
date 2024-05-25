@@ -9,7 +9,7 @@ import { faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setUserToken } from "../../redux/token";
+import { setUserToken } from "../../features/token";
 
 import ArgentBankLogo from "../../assets/argentBankLogo.png";
 

@@ -2,7 +2,7 @@
 // This file sets up the Redux store with the necessary slices.
 
 import { configureStore } from '@reduxjs/toolkit';
-import tokenReducer from '../redux/token';
+import tokenReducer from '../features/token';
 import rememberReducer from '../features/remember';
 
 export default configureStore({

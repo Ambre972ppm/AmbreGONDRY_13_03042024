@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navigation from "../../components/Navigation/navigation";
 import Footer from "../../components/Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserToken } from "../../redux/token";
+import { setUserToken } from "../../features/token";
 import { setRemember } from "../../features/remember";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/api";
